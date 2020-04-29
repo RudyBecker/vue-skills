@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="skills">
+    <div class="holder">
+      <ul>
+        <li v-for="(data, index) in skills" :key='index'>{{index}}. {{data.skill}}</li>
+      </ul>
+
+      <p v-if="skills.length >= 1">You have more than 1 skill</p>
+      <p v-else>You have less than or equal to 1 skill</p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: 'Skills',
+  data() {
+    return {
+      skills: [
+          { "skill": "Vue.js" },
+          { "skill": "Frontend Developer" }
+      ]
+    }
+  },
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  body {  
+      background-color: #eeeeee;
+    }
 </style>
